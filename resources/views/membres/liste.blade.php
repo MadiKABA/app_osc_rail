@@ -15,16 +15,104 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                <h5 class="modal-title" id="staticBackdropLabel">Ajouter un membre</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                ...
+                                <form class="w-100" method="POST" action="{{ route('login') }}">
+                                    @csrf
+
+                                    <div class="row mb-1">
+                                        <label for="email"
+                                            class="col-md-12  col-form-label text-md-start">{{ __('Nom') }}</label>
+                                        <div class="col-md-12">
+                                            <input id="email" type="text"
+                                                class="form-control border-2 @error('email') is-invalid @enderror"
+                                                name="email" value="{{ old('email') }}" required autocomplete="email"
+                                                autofocus>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-1">
+                                        <label for="password"
+                                            class="col-md-12 col-form-label text-md-start">{{ __('Prénom') }}</label>
+                                        <div class="col-md-12">
+                                            <input id="password" type="text"
+                                                class="form-control border-2 @error('password') is-invalid @enderror"
+                                                name="password" required autocomplete="current-password">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-1">
+                                        <label for="email"
+                                            class="col-md-12  col-form-label text-md-start">{{ __('Email') }}</label>
+                                        <div class="col-md-12">
+                                            <input id="email" type="email"
+                                                class="form-control border-2 @error('email') is-invalid @enderror"
+                                                name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-1">
+                                        <label for="email"
+                                            class="col-md-12  col-form-label text-md-start">{{ __('Téléphone') }}</label>
+                                        <div class="col-md-12">
+                                            <input id="email" type="tel"
+                                                class="form-control border-2 @error('email') is-invalid @enderror"
+                                                name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-1">
+                                        <label for="email"
+                                            class="col-md-12  col-form-label text-md-start">{{ __('Date Naissance') }}</label>
+                                        <div class="col-md-12">
+                                            <input id="email" type="date"
+                                                class="form-control border-2 @error('email') is-invalid @enderror"
+                                                name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-1">
+                                        <label for="email"
+                                            class="col-md-12  col-form-label text-md-start">{{ __('Genre') }}</label>
+                                        <div class="col-md-12">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Selectionner un Genre</option>
+                                                <option value="1">Dakar</option>
+                                                <option value="2">Matam</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-1">
+                                        <label for="email"
+                                            class="col-md-12  col-form-label text-md-start">{{ __('Départements') }}</label>
+                                        <div class="col-md-12">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Selectionner un departementss</option>
+                                                <option value="1">Homme</option>
+                                                <option value="2">Femme</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-1">
+                                        <label for="email"
+                                            class="col-md-12  col-form-label text-md-start">{{ __('Activités') }}</label>
+                                        <div class="col-md-12">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Selectionner une activités</option>
+                                                <option value="1">Vendeuse</option>
+                                                <option value="2">Artisanat</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-0">
+                                        <div class="col-md-12 offset-md-12">
+                                            <button type="submit" class="w-100 btn btn-primary">
+                                                {{ __('Enregistrer') }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Understood</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                             </div>
                         </div>
                     </div>
