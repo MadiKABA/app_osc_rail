@@ -131,6 +131,13 @@
                         <i class="bi bi-people-fill"></i>
                     </span>
                     Membres</a></li>
+                    <li class="{{ request()->routeIs('home') ? 'link_active text-danger' : '' }}"><a
+                    class="{{ request()->routeIs('home') ? 'link_active text-white fs-5' : '' }}" href="#">
+                    <span>
+                        <i class="bi bi-person-workspace"></i>
+                    </span>
+                    Activités
+                </a></li>
             <li class="{{ request()->routeIs('home') ? 'link_active text-danger' : '' }}"><a
                     class="{{ request()->routeIs('home') ? 'link_active text-white fs-5' : '' }}" href="#">
                     <span>
