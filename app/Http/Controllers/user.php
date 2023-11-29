@@ -11,7 +11,7 @@ class user extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

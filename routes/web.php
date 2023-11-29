@@ -23,3 +23,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/membre',[MembreController::class,'index'])->name('membre.index');
+Route::post('/membre/store',[MembreController::class,'store'])->name('membre.store');

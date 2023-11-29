@@ -20,7 +20,7 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form class="w-100" method="POST" action="{{ route('login') }}">
+                                <form class="w-100" method="POST" action="{{ route('membre.store') }}">
                                     @csrf
 
                                     <div class="row mb-1">
@@ -86,8 +86,11 @@
                                         <div class="col-md-12">
                                             <select class="form-select" aria-label="Default select example">
                                                 <option selected>Selectionner un departementss</option>
-                                                <option value="1">Homme</option>
-                                                <option value="2">Femme</option>
+                                                @foreach ($departement as $departements)
+                                                    <option value="{{ $departements->id }}">{{ $departements->libelle}}
+                                                    </option>
+                                                @endforeach
+                                               
                                             </select>
                                         </div>
                                     </div>
@@ -105,6 +108,7 @@
                                     <div class="row mb-0">
                                         <div class="col-md-12 offset-md-12">
                                             <button type="submit" class="w-100 btn btn-primary">
+                                                
                                                 {{ __('Enregistrer') }}
                                             </button>
                                         </div>
@@ -153,13 +157,21 @@
             <th>Activité</th>
             <th>Action</th>
         </tr>
-        <tr>
-            <td>Diarra DIOUF</td>
-            <td>+221 77 100 00 00</td>
-            <td>Masculin</td>
-            <td>Menagere</td>
-            <td><button>Retirer</button></td>
-        </tr>
+        <tbody>
+            @foreach ($menbre as $membre)
+                <tr>
+                    <td>{{ $membre->nom }}</td>
+                    <td>{{ $membre->prenom }}</td>
+                    <td>{{ $membre->email }}</td>
+                    <td>{{ $membre->matricule }}</td>
+                    <td>{{ $membre->phone }}</td>
+                    <td>{{ $membre->genre }}</td>
+                    <td><button>Retirer</button></td>
+                    <!-- Ajoutez d'autres cellules si nécessaire -->
+                </tr>
+            @endforeach
+        </tbody>
+
         <!-- Répétez les lignes ci-dessus pour chaque membre. -->
     </table>
 @endsection

@@ -12,7 +12,7 @@ class DepartementController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -20,7 +20,8 @@ class DepartementController extends Controller
      */
     public function create()
     {
-        //
+        $departement=departement::all();
+        return view('departements.create',compact('departement'));
     }
 
     /**
@@ -28,7 +29,13 @@ class DepartementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required',
+            'description' => 'required',
+        ]);
+        departement::create($request->all());
+        return redirect()->route('departements.create')
+            ->with('success', 'departement created successfully.');
     }
 
     /**
