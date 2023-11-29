@@ -25,7 +25,7 @@
                 $table->unsignedBigInteger('departement_id');
                 $table->foreign('departement_id')->references('id')->on('departements');
                 $table->unsignedBigInteger('secteur_activite_id');
-                $table->foreign('secteur_activite_id')->references('id')->on('secteur_activites');
+                $table->foreign('secteur_activite_id')->references('id')->on('secteuractivites');
                 $table->timestamps();
             });
         }

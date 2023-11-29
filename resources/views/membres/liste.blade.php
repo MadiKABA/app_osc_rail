@@ -100,8 +100,11 @@
                                         <div class="col-md-12">
                                             <select class="form-select" aria-label="Default select example">
                                                 <option selected>Selectionner une activités</option>
-                                                <option value="1">Vendeuse</option>
-                                                <option value="2">Artisanat</option>
+                                                @foreach ($secteuractivite as $secteuractivites)
+                                                    <option value="{{ $secteuractivites->id }}">{{ $secteuractivites->libelle}}
+                                                    </option>
+                                                @endforeach
+                                              
                                             </select>
                                         </div>
                                     </div>

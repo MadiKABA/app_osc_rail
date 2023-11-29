@@ -12,7 +12,8 @@ class SecteuractiviteController extends Controller
      */
     public function index()
     {
-        //
+        $secteuractivite =secteuractivite::all();
+        return view('secteuractivite.list', compact('secteuractivite'));
     }
 
     /**
@@ -20,7 +21,7 @@ class SecteuractiviteController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -28,7 +29,13 @@ class SecteuractiviteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required',
+            'description' => 'required',
+        ]);
+        secteuractivite::create($request->all());
+        return redirect()->route('secteur.index')
+            ->with('success', 'secteuractivite created successfully.');
     }
 
     /**
@@ -36,7 +43,8 @@ class SecteuractiviteController extends Controller
      */
     public function show(secteuractivite $secteuractivite)
     {
-        //
+        $secteuractivite=secteuractivite::find($id);
+        return view('secteuractivites.show', compact('secteuractivite'));
     }
 
     /**
@@ -52,7 +60,14 @@ class SecteuractiviteController extends Controller
      */
     public function update(Request $request, secteuractivite $secteuractivite)
     {
-        //
+        $request->validate([
+            'libelle' => 'required',
+            'description' => 'required',
+        ]);
+        $secteuractivite->update($request->all());
+        return redirect()->route('secteuractivites.index')
+            ->with('success', 'secteuractivite updated successfully');
+
     }
 
     /**
@@ -60,6 +75,6 @@ class SecteuractiviteController extends Controller
      */
     public function destroy(secteuractivite $secteuractivite)
     {
-        //
+        $secteuractivite->find($id)->delete();
     }
 }

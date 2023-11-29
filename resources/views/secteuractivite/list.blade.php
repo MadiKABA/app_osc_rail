@@ -20,7 +20,7 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form class="w-100" method="POST" action="{{ route('login') }}">
+                                <form class="w-100" method="POST" action="{{ route('secteur.store') }}">
                                     @csrf
 
                                     <div class="row mb-1">
@@ -29,7 +29,7 @@
                                         <div class="col-md-12">
                                             <input id="email" type="text"
                                                 class="form-control border-2 @error('email') is-invalid @enderror"
-                                                name="email" value="{{ old('email') }}" required autocomplete="email"
+                                                name="libelle" value="{{ old('email') }}" required autocomplete="email"
                                                 autofocus>
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@
                                         <div class="col-md-12">
                                             <input id="password" type="text"
                                                 class="form-control border-2 @error('password') is-invalid @enderror"
-                                                name="password" required autocomplete="current-password">
+                                                name="description" required autocomplete="current-password">
                                         </div>
                                     </div>
                                     <div class="row mb-0">
@@ -65,7 +65,11 @@
             <th>Nom</th>
         </tr>
         <tr>
-            <td>Diarra DIOUF</td>
+            @foreach ($secteuractivite as $secteuractivite)
+                <td>{{ $secteuractivite->libelle }}</td>
+            
+                </td>
+           @endforeach
         </tr>
         <!-- Répétez les lignes ci-dessus pour chaque membre. -->
     </table>

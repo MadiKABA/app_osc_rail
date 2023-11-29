@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MembreController;
+use App\Http\Controllers\SecteuractiviteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/membre',[MembreController::class,'index'])->name('membre.index');
 Route::post('/membre/store',[MembreController::class,'store'])->name('membre.store');
+Route::post('/secteurdactiviter/store',[SecteuractiviteController::class,'store'])->name('secteur.store');
+Route::get('/secteurdactiviter',[SecteuractiviteController::class,'index'])->name('secteur.index');
+

@@ -6,6 +6,7 @@ use App\Models\membre;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\departement;
+use App\Models\secteuractivite;
 
 class MembreController extends Controller
 {
@@ -16,8 +17,9 @@ class MembreController extends Controller
     {
         $menbre =membre::all();
         $departement =departement::all();
+        $secteuractivite =secteuractivite::all();
        
-        return view('membres.liste', compact('menbre','departement'));
+        return view('membres.liste', compact('menbre','departement','secteuractivite'));
     }
 
     /**
